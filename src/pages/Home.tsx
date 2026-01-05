@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { Header } from '../components/Header'
 import { Modal } from '../components/Modal';
 import { Searchform } from '../components/Searchform';
-import { Footer } from '../components/Footer';
 import { MovieCard } from '../components/MovieCard';
 
 

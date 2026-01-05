@@ -1,18 +1,7 @@
 
 import { MovieCard } from "../components/MovieCard"
 
-interface peliculaProps {
-  
-  show: {
-    id:number,
-  name: string,
-  status: string,
-  summary: string,
-  premiered: string,
-  image?: {medium: string};
-  }
-  
-}
+
 
 export const Favorites = ({favoritos, deleteFavorite}: any) => {
 
