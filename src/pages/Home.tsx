@@ -3,6 +3,9 @@ import { Header } from '../components/Header'
 import { Modal } from '../components/Modal';
 import { Searchform } from '../components/Searchform';
 import { MovieCard } from '../components/MovieCard';
+import { Footer } from '../components/Footer';
+import { useMovie } from '../Hooks/Usemovie';
+
 
 
 
@@ -21,96 +24,44 @@ interface peliculas {
 
 
 
-export const Home = ({onFavorites}: any) => {
+export const Home = () => {
   const[open, setOpen] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [nombre, SetNombre] = useState<string>('');
-  const [peliculas, setPeliculas] = useState<peliculas[]>([]);
-  const [error, setError] = useState<string | null>(null);
   const [peliculaSeleccionada, setPeliculaSeleccionada] = useState<peliculas | null>(null);
+  const {movies ,loading, error, apiRequest} = useMovie();
   
   
 
-  
 
-
-
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    SetNombre(e.target.value);
-    
-
-  }
-
-
-  const onKeyDown = (e: any) => {
-
-    if(e.key === 'enter'){
-      getData();
-    }
-    
-  };
-
-
- 
-
-
-
- 
-
-  const getData = async () => {
-    setLoading(true);
-    setPeliculas([]);
-
-    try {
-
-      const request = await fetch(`https://api.tvmaze.com/search/shows?q=${nombre}`)
-    
-    if(!request.ok) throw new Error('La peticion a fallado');
-    const data = await request.json();
-    setPeliculas(data);
-      
-    } catch (error) {
-      setError('Ocurrio un error')
-      console.error(error);
-      
-    }finally{
-      setLoading(false)
-      SetNombre('');
-
-    }
-    
-  }
-
-  const fondo = peliculas.length > 0 ? 'h-auto w-auto' : 'h-screen w-screen';
+  const fondo = movies.length > 0 ? 'h-auto' : 'h-screen';
   if(error) return <p>{error}</p> 
   
+  
+
   return(
 
     
-
-    
     <div
-  className={`relative min-h-screen ${fondo}`}
+  className={`relative min-h-screen w-full ${fondo}`}
 >
  
-  <Header Titulo="Movieapp" Nombre="Ronald Martinez" />
+  <Header Titulo="Movieapp" Nombre="Username" />
 
  
   <main className="max-w-7xl mx-auto px-4 pt-20 pb-10 space-y-10">
     
-    <div className="text-center space-y-4">
-      <h1 className="text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">
-        Buscador de Películas
-      </h1>
-      <p className="text-gray-400 text-sm">Descubre tus series y películas favoritas</p>
+    <div className="text-center space-y-6 mt-8">
+      <div className="relative inline-block">
+        <h1 className="text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 text-shadow-lg">
+          Buscador de Películas
+        </h1>
+        <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-lg blur-2xl opacity-20 -z-10"></div>
+      </div>
+      <p className="text-gray-300 text-lg font-medium">Descubre tus series y películas favoritas ✨</p>
     </div>
 
     <div className="flex justify-center">
       <Searchform
-        onSearch={getData}
-        onChange={handleOnChange}
-        value={nombre}
-        onKeyDown={() => onKeyDown}
+      onSearch={apiRequest}
       />
     </div>
    
@@ -123,9 +74,9 @@ export const Home = ({onFavorites}: any) => {
   <div className="text-center text-purple-400 mt-6">Buscando películas...</div>
 </div>
 
-      ) : peliculas.length > 0 ? (
+      ) : movies.length > 0 ? (
        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {peliculas.map((pelicula)=> <MovieCard peliculas={pelicula} onClick={() => {setOpen(true); setPeliculaSeleccionada(pelicula)}} addFavorites={() => onFavorites(pelicula)}></MovieCard> )}
+        {movies.map((pelicula)=> <MovieCard peliculas={pelicula} onClick={() => {setOpen(true); setPeliculaSeleccionada(pelicula); }  } showLike={() => true}></MovieCard> )}
   
 </div>
 
@@ -189,6 +140,7 @@ export const Home = ({onFavorites}: any) => {
 
   </main>
 
+  <Footer />
 </div>
 
 
