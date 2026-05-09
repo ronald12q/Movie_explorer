@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 import { FaTrash } from "react-icons/fa6"
 import { useFavoriteStore } from "../stores/useFavoritesStore"
