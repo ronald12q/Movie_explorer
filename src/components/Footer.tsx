@@ -5,19 +5,19 @@ export const Footer = () => {
 
 
     return (
-        <footer className="w-full text-white py-10 mt-20 border-t border-white/5 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent backdrop-blur-xl">
-  <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-    <div className="text-sm text-gray-300 flex items-center gap-2 font-medium">
+        <footer className="mt-20 w-full border-t border-[#ebdbb2]/10 bg-[#1d2021]/35 py-8 text-[#ebdbb2] backdrop-blur-xl">
+  <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-center md:flex-row md:text-left">
+    <div className="flex items-center gap-2 text-sm font-medium text-[#a89984]">
       <span>©</span>
       <span>{new Date().getFullYear()}</span>
-      <span className="text-purple-400 mx-1">•</span>
-      <span>Todos los derechos reservados.</span>
+      <span className="mx-1 text-[#fabd2f]">•</span>
+      <span>All rights reserved.</span>
     </div>
-    <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
-      <span>Hecho con</span>
-      <span className="text-red-500 animate-pulse text-base">❤️</span>
+    <div className="flex items-center gap-2 text-sm font-medium text-[#a89984]">
+      <span>Built with</span>
+      <span className="text-[#fabd2f]">React</span>
       <span>y</span>
-      <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent font-bold">React</span>
+      <span className="font-bold text-[#fbf1c7]">Tailwind</span>
     </div>
   </div>
 </footer>

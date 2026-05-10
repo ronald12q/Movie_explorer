@@ -15,84 +15,84 @@ export const Errorfile = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-6 bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
-            <div className="max-w-2xl w-full">
+        <div className="cinema-shell flex min-h-screen items-center justify-center p-6">
+            <div className="w-full max-w-2xl">
                 
                 {/* Error Card */}
-                <div className="bg-gradient-to-b from-neutral-900 to-neutral-950 rounded-3xl p-8 shadow-2xl border border-neutral-800 hover:border-purple-500/50 transition-all duration-500">
+                <div className="glass-panel rounded-[2rem] p-8 text-center transition-all duration-500 sm:p-10">
                     
                     {/* Animated Error Icon */}
-                    <div className="flex justify-center mb-8">
+                    <div className="mb-8 flex justify-center">
                         <div className="relative">
-                            <div className="absolute inset-0 bg-purple-600 blur-3xl opacity-40 animate-pulse"></div>
-                            <BiSolidError className="text-9xl text-purple-500 relative z-10 animate-bounce" />
+                            <div className="absolute inset-0 animate-pulse rounded-full bg-[#fabd2f]/20 blur-3xl"></div>
+                            <BiSolidError className="relative z-10 text-8xl text-[#fabd2f]" />
                         </div>
                     </div>
 
                     {/* Error Code */}
-                    <div className="text-center mb-6">
-                        <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-400 bg-clip-text text-transparent mb-4">
+                    <div className="mb-6 text-center">
+                        <h1 className="mb-4 text-7xl font-black tracking-[-0.06em] text-[#fbf1c7]">
                             404
                         </h1>
-                        <div className="flex items-center justify-center gap-2 text-amber-50 text-xl mb-2">
-                            <MdMovie className="text-purple-400" />
-                            <span>Página No Encontrada</span>
-                            <MdMovie className="text-purple-400" />
+                        <div className="mb-2 flex items-center justify-center gap-2 text-xl font-bold text-[#ebdbb2]">
+                            <MdMovie className="text-[#fabd2f]" />
+                            <span>Page Not Found</span>
+                            <MdMovie className="text-[#fabd2f]" />
                         </div>
                     </div>
 
                     {/* Error Message */}
-                    <div className="bg-neutral-800/50 rounded-xl p-6 mb-8 border border-purple-900/30">
-                        <p className="text-center text-amber-50/80 text-sm leading-relaxed">
-                            ¡Oops! Parece que esta película no está en cartelera. 
-                            La página que buscas no existe o ha sido movida.
+                    <div className="mb-8 rounded-2xl border border-[#ebdbb2]/10 bg-[#3c3836]/60 p-6">
+                        <p className="text-center text-sm leading-7 text-[#d5c4a1]">
+                            Oops! It looks like this movie is not playing here.
+                            The page you are looking for does not exist or has been moved.
                         </p>
                     </div>
 
                     {/* Decorative Elements */}
-                    <div className="flex justify-center gap-2 mb-8">
-                        <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></div>
-                        <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse delay-75"></div>
-                        <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse delay-150"></div>
+                    <div className="mb-8 flex justify-center gap-2">
+                        <div className="h-2 w-2 rounded-full bg-[#fabd2f]"></div>
+                        <div className="h-2 w-2 rounded-full bg-[#b8bb26]"></div>
+                        <div className="h-2 w-2 rounded-full bg-[#83a598]"></div>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col gap-4 sm:flex-row">
                         <button
                             onClick={handleGoHome}
-                            className="flex-1 flex items-center justify-center gap-3 py-4 px-6 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium hover:from-purple-500 hover:to-indigo-500 transition-all duration-300 shadow-lg hover:shadow-purple-500/50 transform hover:-translate-y-1"
+                            className="flex flex-1 items-center justify-center gap-3 rounded-2xl bg-[#fabd2f] px-6 py-4 font-black uppercase tracking-[0.14em] text-[#1d2021] shadow-lg shadow-[#1d2021]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#fe8019]"
                         >
                             <FaHome className="text-xl" />
-                            <span>Volver al Inicio</span>
+                            <span>Back to Home</span>
                         </button>
 
                         <button
                             onClick={handleReload}
-                            className="flex-1 flex items-center justify-center gap-3 py-4 px-6 rounded-xl bg-neutral-800 text-white font-medium hover:bg-neutral-700 transition-all duration-300 shadow-lg hover:shadow-neutral-700/50 transform hover:-translate-y-1 border border-neutral-700"
+                            className="flex flex-1 items-center justify-center gap-3 rounded-2xl border border-[#ebdbb2]/10 bg-[#3c3836]/60 px-6 py-4 font-bold text-[#fbf1c7] shadow-lg shadow-[#1d2021]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#504945]/70"
                         >
                             <FaRedo className="text-xl" />
-                            <span>Reintentar</span>
+                            <span>Retry</span>
                         </button>
                     </div>
 
                     {/* Footer Message */}
                     <div className="mt-8 text-center">
-                        <p className="text-xs text-amber-50/40">
-                            Si el problema persiste, contacta al administrador
+                        <p className="text-xs text-[#928374]">
+                            If the problem persists, contact the administrator
                         </p>
                     </div>
                 </div>
 
                
                 <div className="mt-8 flex justify-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-purple-600/10 border border-purple-500/30 flex items-center justify-center backdrop-blur-sm">
-                        <MdMovie className="text-2xl text-purple-400" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#ebdbb2]/10 bg-[#3c3836]/60 backdrop-blur-sm">
+                        <MdMovie className="text-2xl text-[#fabd2f]" />
                     </div>
-                    <div className="w-16 h-16 rounded-full bg-indigo-600/10 border border-indigo-500/30 flex items-center justify-center backdrop-blur-sm">
-                        <MdMovie className="text-2xl text-indigo-400" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#ebdbb2]/10 bg-[#3c3836]/60 backdrop-blur-sm">
+                        <MdMovie className="text-2xl text-[#b8bb26]" />
                     </div>
-                    <div className="w-16 h-16 rounded-full bg-pink-600/10 border border-pink-500/30 flex items-center justify-center backdrop-blur-sm">
-                        <MdMovie className="text-2xl text-pink-400" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#ebdbb2]/10 bg-[#3c3836]/60 backdrop-blur-sm">
+                        <MdMovie className="text-2xl text-[#83a598]" />
                     </div>
                 </div>
             </div>

@@ -33,19 +33,19 @@ interface MovieCardProps {
 
             <div
       key={peliculas.show.id}
-      className="group bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl overflow-hidden shadow-2xl hover:shadow-purple-500/40 card-hover border border-white/5 hover:border-purple-400/50 backdrop-blur-sm"
+      className="card-hover group overflow-hidden rounded-[1.75rem] border border-[#ebdbb2]/10 bg-[#282828]/78 shadow-2xl shadow-[#1d2021]/35 backdrop-blur-xl transition-all duration-300 hover:border-[#fabd2f]/35 hover:bg-[#3c3836]/85"
     >
     
       <div className="relative overflow-hidden">
         <img
           src={peliculas.show.image?.medium || "/no-image.png"}
           alt={peliculas.show.name}
-          className="w-full h-72 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+          className="h-80 w-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1d2021] via-[#1d2021]/45 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-65"></div>
 
         
-        <span className="absolute top-4 left-4 px-4 py-2 text-xs font-bold rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-xl backdrop-blur-md uppercase tracking-wide">
+        <span className="absolute left-4 top-4 rounded-full border border-[#ebdbb2]/15 bg-[#1d2021]/75 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#fabd2f] shadow-xl backdrop-blur-md">
           {peliculas.show.status}
         </span>
 
@@ -53,7 +53,7 @@ interface MovieCardProps {
         {deleteFavoritesFun && (
           <button 
             onClick={deleteFavoritesFun}
-            className="absolute top-4 right-4 bg-gradient-to-br from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white p-2.5 rounded-full transition-all duration-300 hover:scale-110 hover:-rotate-6 shadow-2xl hover:shadow-red-500/60 opacity-0 group-hover:opacity-100 z-10"
+            className="absolute right-4 top-4 z-10 rounded-full border border-[#fb4934]/35 bg-[#cc241d]/90 p-2.5 text-[#fbf1c7] opacity-100 shadow-2xl shadow-[#1d2021]/30 transition-all duration-300 hover:scale-105 hover:bg-[#fb4934] sm:opacity-0 sm:group-hover:opacity-100"
             title="Eliminar de favoritos"
           >
             <FaTrash className="text-sm" />
@@ -64,32 +64,32 @@ interface MovieCardProps {
         {showLike && (
           <button 
             onClick={handleLike}
-            className="absolute bottom-4 right-4 bg-slate-900/90 hover:bg-slate-800 backdrop-blur-md p-3 rounded-full transition-all duration-300 hover:scale-125 shadow-2xl border-2 border-slate-700/50 hover:border-red-400/80 z-10"
-            title={existe ? "Quitar de favoritos" : "Agregar a favoritos"}
+            className="absolute bottom-4 right-4 z-10 rounded-full border border-[#ebdbb2]/15 bg-[#1d2021]/80 p-3 shadow-2xl shadow-[#1d2021]/35 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#fb4934]/60 hover:bg-[#282828]"
+            title={existe ? "Remove from favorites" : "Add to favorites"}
           >
             {existe ? (
-              <FaHeart className="text-xl text-red-500 animate-pulse drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+              <FaHeart className="text-xl text-[#fb4934] drop-shadow-[0_0_8px_rgba(251,73,52,0.45)]" />
             ) : (
-              <FaRegHeart className="text-xl text-white group-hover:text-red-300 transition-colors" />
+              <FaRegHeart className="text-xl text-[#ebdbb2] transition-colors group-hover:text-[#fb4934]" />
             )}
           </button>
         )}
       </div>
 
       
-      <div className="p-6 flex flex-col gap-4">
+      <div className="flex flex-col gap-5 p-5">
 
        
-        <h2 className="text-xl font-bold text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent line-clamp-2 min-h-[60px] group-hover:from-violet-300 group-hover:to-fuchsia-300 transition-all duration-300">
+        <h2 className="line-clamp-2 min-h-[56px] text-center text-lg font-extrabold leading-tight text-[#fbf1c7] transition-colors duration-300 group-hover:text-[#fabd2f]">
           {peliculas.show.name}
         </h2>
 
        
         {onClick && <button
         onClick={onClick}
-          className="mt-auto w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 text-white font-bold hover:from-violet-500 hover:via-purple-500 hover:to-fuchsia-500 transition-all duration-300 shadow-xl hover:shadow-purple-500/60 transform hover:scale-105 cursor-pointer uppercase text-sm tracking-wider"
+          className="mt-auto w-full cursor-pointer rounded-2xl border border-[#fabd2f]/30 bg-[#fabd2f] px-5 py-3.5 text-sm font-black uppercase tracking-[0.18em] text-[#1d2021] shadow-xl shadow-[#1d2021]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#fe8019]"
         >
-          Ver detalles
+          View details
         </button>}
 
       </div>

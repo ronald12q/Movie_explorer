@@ -15,17 +15,17 @@ export const Modal = ( {isOpen, onClose, children, closeOut}: Modalprops) => {
     if(isOpen === false) return null;
 
     return (
-    <div onClick={closeOut} className="fixed inset-0 bg-black/80 backdrop-blur-xl flex items-center justify-center px-4 sm:px-6 py-8 z-50 animate-in fade-in duration-300">
-      <div onClick={(e) => e.stopPropagation()} className="relative w-full max-w-md sm:max-w-lg mx-auto bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl shadow-2xl border border-white/10 max-h-[90vh] flex flex-col backdrop-blur-xl">
+    <div onClick={closeOut} className="fixed inset-0 z-50 flex items-center justify-center bg-[#1d2021]/88 px-4 py-8 backdrop-blur-xl sm:px-6">
+      <div onClick={(e) => e.stopPropagation()} className="glass-panel relative mx-auto flex max-h-[90vh] w-full max-w-md flex-col overflow-hidden rounded-[2rem] text-[#ebdbb2] sm:max-w-xl">
         
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 bg-gradient-to-br from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-full w-11 h-11 flex items-center justify-center transition-all duration-300 backdrop-blur-sm border border-white/20 hover:scale-110 hover:rotate-90 z-20 shadow-xl font-bold text-lg"
+          className="absolute right-5 top-5 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-[#ebdbb2]/15 bg-[#1d2021]/75 text-sm font-bold text-[#fbf1c7] shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-[#fabd2f]/50 hover:bg-[#fabd2f]/15 hover:text-[#fabd2f]"
         >
           ✕
         </button>
 
-        <div className="overflow-y-auto scrollbar-thin scrollbar-thumb-purple-600 scrollbar-track-slate-800">
+        <div className="overflow-y-auto">
           {children}
         </div>
         

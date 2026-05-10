@@ -1,8 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 * {
     font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background: #1d2021;
+    color: #ebdbb2;
 }
 
 @layer utilities {
@@ -15,6 +22,19 @@
   }
   
   .card-hover:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
+  }
+
+  .cinema-shell {
+    background:
+      radial-gradient(circle at top left, rgba(250, 189, 47, 0.14), transparent 30rem),
+      radial-gradient(circle at 80% 10%, rgba(184, 187, 38, 0.10), transparent 28rem),
+      linear-gradient(135deg, #1d2021 0%, #282828 48%, #1d2021 100%);
+  }
+
+  .glass-panel {
+    background: rgba(40, 40, 40, 0.78);
+    border: 1px solid rgba(235, 219, 178, 0.14);
+    box-shadow: 0 24px 80px rgba(29, 32, 33, 0.52);
   }
 }

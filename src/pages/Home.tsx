@@ -40,23 +40,24 @@ export const Home = () => {
   return(
 
     
-    <div
-  className={`relative min-h-screen w-full ${fondo}`}
->
+    <div className={`relative min-h-screen w-full ${fondo}`}>
  
   <Header Titulo="Movieapp" Nombre="Username" />
 
  
-  <main className="max-w-7xl mx-auto px-4 pt-20 pb-10 space-y-10">
+  <main className="mx-auto max-w-7xl space-y-12 px-4 pb-10 pt-14 sm:px-6 lg:px-8">
     
-    <div className="text-center space-y-6 mt-8">
-      <div className="relative inline-block">
-        <h1 className="text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 text-shadow-lg">
-          Buscador de Películas
-        </h1>
-        <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-lg blur-2xl opacity-20 -z-10"></div>
+    <div className="mx-auto max-w-4xl space-y-7 text-center">
+      <div className="inline-flex items-center gap-2 rounded-full border border-[#fabd2f]/20 bg-[#fabd2f]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-[#fabd2f] shadow-lg shadow-[#1d2021]/20">
+        <span className="h-2 w-2 rounded-full bg-[#b8bb26]"></span>
+        Explore TVMaze
       </div>
-      <p className="text-gray-300 text-lg font-medium">Descubre tus series y películas favoritas ✨</p>
+      <div className="space-y-5">
+        <h1 className="text-4xl font-black tracking-[-0.05em] text-[#fbf1c7] sm:text-6xl lg:text-7xl">
+          Find your next favorite story
+        </h1>
+        <p className="mx-auto max-w-2xl text-base leading-8 text-[#a89984] sm:text-lg">Search movies and series, review their details, and save your favorites in a cleaner, faster, more professional experience.</p>
+      </div>
     </div>
 
     <div className="flex justify-center">
@@ -64,74 +65,76 @@ export const Home = () => {
       onSearch={apiRequest}
       />
     </div>
-   
-    <section className="text-amber-50 mt-8">
+    
+    <section className="mt-8 text-[#fbf1c7]">
       {loading ? (
-        <div className="space-y-4 max-w-md mx-auto">
-  <div className="h-6 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg w-3/4 mx-auto animate-pulse"></div>
-  <div className="h-6 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg w-1/2 mx-auto animate-pulse"></div>
-  <div className="h-6 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg w-2/3 mx-auto animate-pulse"></div>
-  <div className="text-center text-purple-400 mt-6">Buscando películas...</div>
+        <div className="mx-auto max-w-2xl rounded-[2rem] border border-[#ebdbb2]/10 bg-[#282828]/60 p-8 text-center shadow-2xl shadow-[#1d2021]/30 backdrop-blur-xl">
+  <div className="mx-auto mb-6 h-12 w-12 animate-spin rounded-full border-2 border-[#504945] border-t-[#fabd2f]"></div>
+  <div className="space-y-3">
+    <div className="mx-auto h-4 w-3/4 animate-pulse rounded-full bg-[#ebdbb2]/10"></div>
+    <div className="mx-auto h-4 w-1/2 animate-pulse rounded-full bg-[#ebdbb2]/10"></div>
+  </div>
+  <div className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-[#fabd2f]">Searching titles...</div>
 </div>
 
       ) : movies.length > 0 ? (
-       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {movies.map((pelicula)=> <MovieCard peliculas={pelicula} onClick={() => {setOpen(true); setPeliculaSeleccionada(pelicula); }  } showLike={() => true}></MovieCard> )}
+       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+         {movies.map((pelicula)=> <MovieCard peliculas={pelicula} onClick={() => {setOpen(true); setPeliculaSeleccionada(pelicula); }  } showLike={() => true}></MovieCard> )}
   
 </div>
 
       ) : (
-        <div className="text-center py-16">
-          <div className="text-6xl mb-4">🎬</div>
-          <p className="text-gray-400 text-lg">
-            No hay resultados
+        <div className="mx-auto max-w-xl rounded-[2rem] border border-dashed border-[#ebdbb2]/15 bg-[#282828]/45 px-8 py-16 text-center backdrop-blur-xl">
+          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#ebdbb2]/10 bg-[#3c3836]/60 text-2xl text-[#fabd2f]">⌕</div>
+          <p className="text-xl font-bold text-[#fbf1c7]">
+            Search to get started
           </p>
-          <p className="text-gray-500 text-sm mt-2">Intenta buscar otra película</p>
+          <p className="mt-3 text-sm leading-6 text-[#a89984]">Type the name of a movie or series and the results will appear here.</p>
         </div>
       )}
     </section>
 
     
 <Modal isOpen={open} closeOut={() => setOpen(false)} onClose={() => setOpen(false)}>
-  <div className="relative overflow-hidden flex-shrink-0">
+  <div className="relative flex-shrink-0 overflow-hidden">
     <img
       src={peliculaSeleccionada?.show.image?.medium}
       alt={peliculaSeleccionada?.show.name}
-      className="w-full h-64 sm:h-72 object-cover"
+      className="h-72 w-full object-cover sm:h-80"
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-[#1d2021] via-[#1d2021]/20 to-transparent"></div>
 
-    <span className="absolute top-4 left-4 px-3 py-1.5 text-xs font-semibold bg-purple-600 rounded-full shadow-lg backdrop-blur-sm">
+    <span className="absolute left-4 top-4 rounded-full border border-[#ebdbb2]/15 bg-[#1d2021]/75 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[#fabd2f] shadow-lg backdrop-blur-sm">
       {peliculaSeleccionada?.show.status}
     </span>
   </div>
 
-  <div className="p-5 sm:p-6 space-y-4">
-    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400 pr-8">
+  <div className="space-y-5 p-5 sm:p-7">
+    <h2 className="pr-8 text-3xl font-black tracking-tight text-[#fbf1c7] sm:text-4xl">
       {peliculaSeleccionada?.show.name}
     </h2>
 
-    <div className="flex items-center gap-2 text-sm text-gray-400 bg-neutral-800/50 px-3 py-2 rounded-lg w-fit">
-      <span className="text-base">📅</span>
-      <span>Estreno: {peliculaSeleccionada?.show.premiered}</span>
+    <div className="flex w-fit items-center gap-2 rounded-full border border-[#ebdbb2]/10 bg-[#3c3836]/60 px-4 py-2 text-sm text-[#d5c4a1]">
+      <span className="text-[#fabd2f]">Premiere</span>
+      <span>Premiered: {peliculaSeleccionada?.show.premiered}</span>
     </div>
 
     <div className="space-y-2">
-      <h3 className="text-sm font-semibold text-purple-400">Descripción</h3>
+      <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#fabd2f]">Description</h3>
       <div
-        className="text-gray-300 text-sm leading-relaxed bg-neutral-800/30 p-4 rounded-lg border border-neutral-700/50"
+        className="rounded-2xl border border-[#ebdbb2]/10 bg-[#1d2021]/45 p-4 text-sm leading-7 text-[#d5c4a1] [&_p]:m-0"
         dangerouslySetInnerHTML={{
           __html: peliculaSeleccionada?.show.summary ?? ""
         }}
       />
     </div>
 
-    <div className="pt-3 pb-2 flex justify-end gap-3">
+    <div className="flex justify-end gap-3 pb-2 pt-3">
       <button
         onClick={() => setOpen(false)}
-        className="px-6 py-2.5 text-sm font-medium rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 transition-all duration-200 shadow-lg hover:shadow-purple-500/50"
+        className="rounded-2xl bg-[#fabd2f] px-6 py-3 text-sm font-black uppercase tracking-[0.16em] text-[#1d2021] shadow-lg shadow-[#1d2021]/30 transition-all duration-200 hover:bg-[#fe8019]"
       >
-        Cerrar
+        Close
       </button>
     </div>
   </div>
@@ -152,4 +155,3 @@ export const Home = () => {
 
   
 }
-
