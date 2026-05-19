@@ -14,7 +14,7 @@ A modern, fast, and responsive movie search and favorite management application.
 
 You can test and view the deployed application here:
 
-🚀 **[Link to Live Demo (Replace this with your actual URL later)](#)** 🚀
+🚀 **[Live Demo](https://movieexplorer.ronaldmode123.workers.dev/)** 🚀
 
 ---
 
